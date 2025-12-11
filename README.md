@@ -52,7 +52,6 @@ A **mobile weather application** built with Flutter. Shows live weather data, ci
 - fl_chart 📈  
 - sqflite, path_provider  
 - crypto 🔒  
-- permission_handler (optional)
 
 ---
 
