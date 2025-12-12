@@ -2,7 +2,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
-// If you use sqflite_common_ffi on desktop, import it:
+
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 import 'data/db_helper.dart';
@@ -12,16 +12,16 @@ import 'screens/main_app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize sqflite ffi for desktop platforms.
-  // Do NOT do this for web; kIsWeb prevents it.
+  
+  
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
-    // Initialize ffi implementation
+    
     sqfliteFfiInit();
-    // Set the global databaseFactory to the ffi one so openDatabase works
+    
     databaseFactory = databaseFactoryFfi;
   }
 
-  // Now safe to open DB or call DB helpers that use global openDatabase
+  
   runApp(const WeatherApp());
 }
 
@@ -30,7 +30,7 @@ class WeatherApp extends StatelessWidget {
 
   Future<bool> _hasUser() async {
     final db = DBHelper();
-    final user = await db.getAnyUser(); // safe now: databaseFactory initialized when needed
+    final user = await db.getAnyUser(); 
     return user != null;
   }
 
